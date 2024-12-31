@@ -4,6 +4,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { gsap } from 'gsap';
 import * as THREE from 'three';
+import ReactDOM from 'react-dom';
+import Bglanding from './Bglanding';
 
 // Custom 3D Component
 const RotatingSphere = () => {
@@ -98,7 +100,7 @@ const LandingPage: React.FC = () => {
                         <h2 className="text-2xl font-bold text-purple-400 mb-4">Discover Events</h2>
                         <p className="text-gray-300">
                             Explore a wide range of events curated just for you.
-                        </p>
+                        </p> 
                     </div>
                     <div className="bg-gray-800 p-6 rounded-lg shadow-md">
                         <h2 className="text-2xl font-bold text-pink-400 mb-4">Organize Effortlessly</h2>
@@ -115,10 +117,30 @@ const LandingPage: React.FC = () => {
                 </div>
             </div>
             <div className="bg-gray-900 text-white text-center py-6">
-                
+
             </div>
         </>
     );
 };
 
 export default LandingPage;
+
+
+function Overlay() {
+    return (
+      <div style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none', width: '100%', height: '100%' }}>
+        
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate3d(-50%,-50%,0)' }}>
+          <h1 style={{ margin: 0, padding: 0, fontSize: '15em', fontWeight: 500, letterSpacing: '-0.05em' }}>Event</h1>
+        </div>
+      </div>
+    )
+  }
+  
+  ReactDOM.render(
+    <>
+      <Bglanding /> <Overlay />
+     
+    </>,
+    document.getElementById('root')
+  )
